@@ -1,9 +1,7 @@
 package com.avaj_launcher.sim.aircraft;
 
 import com.avaj_launcher.sim.Coordinates;
-import com.avaj_launcher.sim.aircraft.Aircraft;
 import com.avaj_launcher.sim.tower.WeatherTower;
-import com.avaj_launcher.sim.aircraft.Flyable;
 
 public class JetPlane extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
@@ -35,5 +33,10 @@ public class JetPlane extends Aircraft implements Flyable {
         if (this.coordinates.getHeight() <= 0) {
             weatherTower.unregister(this);
         }
+    }
+
+    public void registerTower(WeatherTower weatherTower) {
+        this.weatherTower = weatherTower;
+        this.weatherTower.register(this);
     }
 }
