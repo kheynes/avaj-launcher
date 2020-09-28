@@ -6,7 +6,7 @@ import com.avaj_launcher.sim.tower.WeatherTower;
 public class JetPlane extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
 
-    private JetPlane(String name, Coordinates coordinates) {
+    public JetPlane(String name, Coordinates coordinates) {
         super(name, coordinates);
     }
 
