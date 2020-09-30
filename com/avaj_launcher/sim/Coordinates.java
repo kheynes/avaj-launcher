@@ -2,12 +2,12 @@ package com.avaj_launcher.sim;
 
 public class Coordinates {
     private int longitude;
-    private int lattitude;
+    private int latitude;
     private int height;
 
-    public Coordinates(int longitude, int lattitude, int height) {
+    public Coordinates(int longitude, int latitude, int height) {
         this.longitude = longitude;
-        this.lattitude = lattitude;
+        this.latitude = latitude;
         this.height = height;
     }
 
@@ -15,8 +15,8 @@ public class Coordinates {
         return this.longitude;
     }
 
-    public int getLattitude() {
-        return this.lattitude;
+    public int getLatitude() {
+        return this.latitude;
     }
 
     public int getHeight() {
