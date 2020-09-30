@@ -10,5 +10,10 @@ public class Sim {
         Flyable flyable2 = aircraftFactory.newAircraft("Balloon", "B1", 2, 2, 2);
         Flyable flyable3 = aircraftFactory.newAircraft("JetPlane", "J1", 3, 3, 3);
 
+        WeatherTower weatherTower = new WeatherTower();
+        flyable1.registerTower(weatherTower);
+        flyable2.registerTower(weatherTower);
+        flyable3.registerTower(weatherTower);
+
     }
 }
