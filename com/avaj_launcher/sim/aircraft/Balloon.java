@@ -9,7 +9,7 @@ public class Balloon extends Aircraft implements Flyable {
     public Balloon(String name, Coordinates coordinates) {
         super(name, coordinates);
 
-        System.out.println("Balloon " + name + " " + coordinates.getLattitude() + " " + coordinates.getLongitude() + " " + coordinates.getHeight());
+        System.out.println("Balloon " + name + " " + coordinates.getLongitude() + " " + coordinates.getLattitude() + " " + coordinates.getHeight());
     }
 
     public void updateConditions() {
@@ -46,7 +46,9 @@ public class Balloon extends Aircraft implements Flyable {
 
         if (this.coordinates.getHeight() <= 0) {
             weatherTower.unregister(this);
+            System.out.println(name + " unregistered");
         }
+        System.out.println("Balloon " + name + " " + coordinates.getLongitude() + " " + coordinates.getLattitude() + " " + coordinates.getHeight());
     }
 
     public void registerTower(WeatherTower weatherTower) {

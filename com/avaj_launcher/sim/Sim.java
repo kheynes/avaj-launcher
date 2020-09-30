@@ -18,6 +18,6 @@ public class Sim {
         flyable1.updateConditions();
         flyable2.updateConditions();
         flyable3.updateConditions();
-
+        
     }
 }

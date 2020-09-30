@@ -4,7 +4,7 @@ import com.avaj_launcher.sim.Coordinates;
 
 public class WeatherTower extends Tower {
     public String getWeather(Coordinates coordinates) {
-        String weather = "SUN";
+        String weather = "SNOW";
         return(weather);
     }
 

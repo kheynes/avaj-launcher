@@ -9,7 +9,7 @@ public class Helicopter extends Aircraft implements Flyable {
     public Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
 
-        System.out.println("Helicopter " + name + " " + coordinates.getLattitude() + " " + coordinates.getLongitude() + " " + coordinates.getHeight());
+        System.out.println("Helicopter " + name + " " + coordinates.getLongitude() + " " + coordinates.getLattitude() + " " + coordinates.getHeight());
     }
 
     public void updateConditions() {
@@ -46,7 +46,9 @@ public class Helicopter extends Aircraft implements Flyable {
 
         if (this.coordinates.getHeight() <= 0) {
             weatherTower.unregister(this);
+            System.out.println(name + " unregistered");
         }
+        System.out.println("Helicopter " + name + " " + coordinates.getLongitude() + " " + coordinates.getLattitude() + " " + coordinates.getHeight());
     }
 
     public void registerTower(WeatherTower weatherTower) {
