@@ -15,5 +15,9 @@ public class Sim {
         flyable2.registerTower(weatherTower);
         flyable3.registerTower(weatherTower);
 
+        flyable1.updateConditions();
+        flyable2.updateConditions();
+        flyable3.updateConditions();
+
     }
 }

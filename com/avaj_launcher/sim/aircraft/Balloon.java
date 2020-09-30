@@ -19,14 +19,26 @@ public class Balloon extends Aircraft implements Flyable {
         int height = this.coordinates.getHeight();
 
         switch(weather) {
-            case "SUN":
+            case "SUN":{
                 this.coordinates = new Coordinates(longitude + 2, lattitude, height + 4);
-            case "RAIN":
+                System.out.println("Balloon Sun");
+                break;
+            }
+            case "RAIN":{
                 this.coordinates = new Coordinates(longitude, lattitude, height - 5);
-            case "FOG":
+                System.out.println("Balloon Rain");
+                break;
+            }
+            case "FOG":{
                 this.coordinates = new Coordinates(longitude, lattitude, height - 3);
-            case "SNOW":
+                System.out.println("Balloon Fog");
+                break;
+            }
+            case "SNOW":{
                 this.coordinates = new Coordinates(longitude, lattitude, height - 15);
+                System.out.println("Balloon Snow");
+                break;
+            }
         }
         if (this.coordinates.getHeight() > 100) {
                 this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLattitude(), 100);

@@ -19,14 +19,26 @@ public class JetPlane extends Aircraft implements Flyable {
         int height = this.coordinates.getHeight();
 
         switch(weather) {
-            case "SUN":
+            case "SUN":{
                 this.coordinates = new Coordinates(longitude, lattitude + 10, height + 2);
-            case "RAIN":
+                System.out.println("JetPlane Sun");
+                break;
+            }
+            case "RAIN":{
                 this.coordinates = new Coordinates(longitude, lattitude + 5, height);
-            case "FOG":
+                System.out.println("JetPlane Rain");
+                break;
+            }
+            case "FOG":{
                 this.coordinates = new Coordinates(longitude, lattitude + 1, height);
-            case "SNOW":
+                System.out.println("JetPlane Fog");
+                break;
+            }
+            case "SNOW":{
                 this.coordinates = new Coordinates(longitude, lattitude, height - 7);
+                System.out.println("JetPlane Snow");
+                break;
+            }
         }
         if (this.coordinates.getHeight() > 100) {
                 this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLattitude(), 100);
