@@ -1,29 +1,29 @@
 package com.avaj_launcher.sim;
 
-import java.io.File;
+import java.io.*;
 import com.avaj_launcher.sim.aircraft.*;
 import com.avaj_launcher.sim.tower.*;
 
 public class Sim {
     public static void main(String[] args) {
+        BufferedReader fileReader = null;
+        try{
+            if (0 < args.length) {
+                String filename = args[0];
+                File file = new File(filename);
 
-        if (0 < args.length) {
-            String filename = args[0];
-            File file = new File(filename);
-
-            try {
-                file.exists();
-                System.out.println("exists");
+                if (file.exists()) {
+                    if (file.length() != 0){
+                        String currentLine;
+                    } else {
+                        throw new Exception("The file is empty");
+                    }
+                } else {
+                    throw new Exception("File does not exist");
+                }
             }
-            catch(Exception e) {
-                System.out.println("file does not exist");
-            }
-
-            // if (file.exists()) {
-            //     System.out.println(file.getName() + " does exist !");
-            // } else {
-            //     System.out.println("Please create the file first");
-            // }
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
         }
 
         
