@@ -8,6 +8,8 @@ public class Helicopter extends Aircraft implements Flyable {
 
     public Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
+
+        System.out.println("Helicopter " + name + " " + coordinates.getLattitude() + " " + coordinates.getLongitude() + " " + coordinates.getHeight());
     }
 
     public void updateConditions() {

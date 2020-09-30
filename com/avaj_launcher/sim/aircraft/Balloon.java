@@ -8,6 +8,8 @@ public class Balloon extends Aircraft implements Flyable {
 
     public Balloon(String name, Coordinates coordinates) {
         super(name, coordinates);
+
+        System.out.println("Balloon " + name + " " + coordinates.getLattitude() + " " + coordinates.getLongitude() + " " + coordinates.getHeight());
     }
 
     public void updateConditions() {
