@@ -9,7 +9,7 @@ public class JetPlane extends Aircraft implements Flyable {
     public JetPlane(String name, Coordinates coordinates) {
         super(name, coordinates);
 
-        System.out.println("JetPlane " + name + " " + coordinates.getLongitude() + " " + coordinates.getLatitude() + " " + coordinates.getHeight());
+        System.out.println("JetPlane " + name +  " " + this.id +  " " + coordinates.getLongitude() + " " + coordinates.getLatitude() + " " + coordinates.getHeight());
     }
 
     public void updateConditions() {

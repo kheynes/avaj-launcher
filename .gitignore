@@ -1,4 +1,4 @@
 *.class
 .vscode
-sources.txt
+*.txt
 compileAvaj.sh
