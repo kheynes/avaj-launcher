@@ -6,7 +6,7 @@ import com.avaj_launcher.sim.tower.*;
 
 public class Sim {
     public static void main(String[] args) {
-        BufferedReader fileReader = null;
+        // BufferedReader fileReader = null;
         // try{
         //     if (0 < args.length) {
         //         String filename = args[0];
@@ -43,18 +43,33 @@ public class Sim {
         // }catch(Exception e) {
         //     System.out.println(e.getMessage());
         // }
-        String line = "Balloon hey hey hey hey";
+        String line = "Balloon hey 20 5 11";
         validateInput(line);
     }
 
     public static void validateInput(String line) {
         String[] inputArray = line.split(" ");
-        System.out.println(inputArray[0]);
+        int longitude;
+        int latitude;
+        int height;
 
         try {
             if(inputArray.length == 5){
                 if(inputArray[0].equals("Helicopter") || inputArray[0].equals("Balloon") || inputArray[0].equals("JetPlane")) {
-                    System.out.println("You is on the right track bish");
+                    try {
+                        longitude = Integer.parseInt(inputArray[2]);
+                        latitude = Integer.parseInt(inputArray[3]);
+                        height = Integer.parseInt(inputArray[4]);
+
+                        if (longitude >= 0 && latitude >= 0 && height >= 0) {
+                            System.out.println("All coordinates are positive values");
+                        } else {
+                            throw new Exception(" ");
+                        }
+                    }catch(Exception e) {
+                        throw new Exception("One or more of the coordinates is not a positive integer");
+                    }
+
                 } else {
                     throw new Exception("First string needs to be aircraft type");
                 }
