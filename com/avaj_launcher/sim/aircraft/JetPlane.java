@@ -48,7 +48,6 @@ public class JetPlane extends Aircraft implements Flyable {
             weatherTower.unregister(this);
             System.out.println(name + " unregistered");
         }
-        System.out.println("JetPlane " + name + " " + coordinates.getLongitude() + " " + coordinates.getLatitude() + " " + coordinates.getHeight());
     }
 
     public void registerTower(WeatherTower weatherTower) {

@@ -6,48 +6,48 @@ import com.avaj_launcher.sim.tower.*;
 
 public class Sim {
     public static void main(String[] args) {
-        // BufferedReader fileReader = null;
-        // try{
-        //     if (0 < args.length) {
-        //         String filename = args[0];
-        //         File file = new File(filename);
+        BufferedReader fileReader = null;
+        try{
+            if (0 < args.length) {
+                String filename = args[0];
+                File file = new File(filename);
 
-        //         if (file.exists()) {
-        //             if (file.length() != 0){
-        //                 String currentLine;
-        //                 int storeNumber;
+                if (file.exists()) {
+                    if (file.length() != 0){
+                        String currentLine;
+                        int storeNumber;
 
-        //                 fileReader = new BufferedReader(new FileReader(file));
+                        fileReader = new BufferedReader(new FileReader(file));
                         
-        //                 currentLine = fileReader.readLine();
+                        currentLine = fileReader.readLine();
 
-        //                 try { 
-        //                      storeNumber = Integer.parseInt(currentLine);
-        //                     if (storeNumber >= 0) {
-        //                         while((currentLine = fileReader.readLine()) != null) {
-        //                             System.out.println(currentLine);
-        //                         }
-        //                     } else {
-        //                         throw new Exception("The first line was not a positive integer");
-        //                     }
-        //                 } catch (Exception e) {
-        //                     throw new Exception("The first line was not a positive integer");
-        //                 }
-        //             } else {
-        //                 throw new Exception("The file is empty");
-        //             }
-        //         } else {
-        //             throw new Exception("File does not exist");
-        //         }
-        //     }
-        // }catch(Exception e) {
-        //     System.out.println(e.getMessage());
-        // }
-        String line = "Balloon hey 20 5 11";
-        validateInput(line);
+                        try { 
+                             storeNumber = Integer.parseInt(currentLine);
+                            if (storeNumber >= 0) {
+                                while((currentLine = fileReader.readLine()) != null) {
+                                    validateInput(currentLine);
+                                }
+                            } else {
+                                throw new Exception("The first line was not a positive integer");
+                            }
+                        } catch (Exception e) {
+                            throw new Exception("The first line was not a positive integer");
+                        }
+                    } else {
+                        throw new Exception("The file is empty");
+                    }
+                } else {
+                    throw new Exception("File does not exist");
+                }
+            }
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void validateInput(String line) {
+        AircraftFactory aircraftFactory = new AircraftFactory();
+        WeatherTower weatherTower = new WeatherTower();
         String[] inputArray = line.split(" ");
         int longitude;
         int latitude;
@@ -62,7 +62,8 @@ public class Sim {
                         height = Integer.parseInt(inputArray[4]);
 
                         if (longitude >= 0 && latitude >= 0 && height >= 0) {
-                            System.out.println("All coordinates are positive values");
+                            Flyable flyable = aircraftFactory.newAircraft(inputArray[0], inputArray[1], longitude, latitude, height);
+                            flyable.registerTower(weatherTower);
                         } else {
                             throw new Exception(" ");
                         }
