@@ -10,7 +10,7 @@ public class Sim {
     public static void main(String[] args) {
         BufferedReader fileReader = null;
         try{
-            if (0 == args.length) {
+            if (0 < args.length) {
                 String filename = args[0];
                 File file = new File(filename);
 
