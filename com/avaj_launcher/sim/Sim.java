@@ -5,6 +5,7 @@ import com.avaj_launcher.sim.aircraft.*;
 import com.avaj_launcher.sim.tower.*;
 
 public class Sim {
+    public static WeatherTower weatherTower = new WeatherTower();
     public static void main(String[] args) {
         BufferedReader fileReader = null;
         try{
@@ -27,6 +28,10 @@ public class Sim {
                                 while((currentLine = fileReader.readLine()) != null) {
                                     validateInput(currentLine);
                                 }
+                                while(storeNumber != 0){
+                                    weatherTower.changeWeather();
+                                    storeNumber--;
+                                }
                             } else {
                                 throw new Exception("The first line was not a positive integer");
                             }
@@ -47,7 +52,6 @@ public class Sim {
 
     public static void validateInput(String line) {
         AircraftFactory aircraftFactory = new AircraftFactory();
-        WeatherTower weatherTower = new WeatherTower();
         String[] inputArray = line.split(" ");
         int longitude;
         int latitude;

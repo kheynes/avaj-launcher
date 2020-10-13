@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Tower {
     private List<Flyable> observers = new ArrayList<Flyable>();
+    private List<Flyable> toRemove = new ArrayList<Flyable>();
 
     public void register(Flyable flyable) {
         if(!observers.contains(flyable)) {
@@ -16,7 +17,7 @@ public class Tower {
 
     public void unregister(Flyable flyable) {
         if(observers.contains(flyable)) {
-            observers.remove(flyable);
+            toRemove.add(flyable);
         }
     }
 
@@ -24,5 +25,7 @@ public class Tower {
         for (Flyable observer : observers) {
             observer.updateConditions();
         }
+
+        observers.removeAll(toRemove);
     }
 }

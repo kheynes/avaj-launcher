@@ -3,14 +3,14 @@ package com.avaj_launcher.sim.weather;
 import com.avaj_launcher.sim.Coordinates;
 
 public class WeatherProvider {
-    private WeatherProvider weatherProvider;
+    private static WeatherProvider weatherProvider = new WeatherProvider();
     private String[] weather ={"RAIN", "SUN", "SNOW", "FOG"};
 
     private WeatherProvider() {
-        weatherProvider = new WeatherProvider();
+
     }
 
-    public WeatherProvider getProvider() {
+    public static WeatherProvider getProvider() {
         return (weatherProvider);
     }
 
