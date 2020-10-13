@@ -8,7 +8,6 @@ import com.avaj_launcher.sim.Output;
 public class Sim {
     public static WeatherTower weatherTower = new WeatherTower();
     public static void main(String[] args) {
-        Output.createFile();
         BufferedReader fileReader = null;
         try{
             if (0 < args.length) {
@@ -20,8 +19,9 @@ public class Sim {
                         String currentLine;
                         int storeNumber;
 
+                        Output.createFile();
+
                         fileReader = new BufferedReader(new FileReader(file));
-                        
                         currentLine = fileReader.readLine();
 
                         try { 
@@ -46,6 +46,8 @@ public class Sim {
                 } else {
                     throw new Exception("File does not exist");
                 }
+            } else { 
+                throw new Exception("Missing input file");
             }
         }catch(Exception e) {
             System.out.println(e.getMessage());
