@@ -4,13 +4,16 @@ import java.io.*;
 
 public class Output {
     static File file;
+    static PrintWriter writer;
     public static void createFile() {
         try {
             file = new File("simulation.txt");
-            if(file.createNewFile()) {
+            if (file.createNewFile()){
 
             } else {
-                throw new Exception("File already exists");
+                writer = new PrintWriter(file);
+                writer.flush();
+                writer.close();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -19,9 +22,9 @@ public class Output {
 
     public static void writeOuput(String outString) {
         try {
-            PrintWriter writer = new PrintWriter(file);
+            writer = new PrintWriter(new FileWriter(file, true));
             writer.write(outString);
-            writer.flush();
+            writer.append("\n");
             writer.close();
         } catch (Exception e) {
             System.out.println("Error occured while writing to file");

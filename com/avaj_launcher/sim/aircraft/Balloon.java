@@ -21,22 +21,22 @@ public class Balloon extends Aircraft implements Flyable {
         switch(weather) {
             case "SUN":{
                 this.coordinates = new Coordinates(longitude + 2, latitude, height + 4);
-                System.out.println("Balloon#" + this.name + "(" + this.id + "):" +  " Sure wish this was cold air balloon.");
+                Output.writeOuput("Balloon#" + this.name + "(" + this.id + "):" +  " Sure wish this was cold air balloon.");
                 break;
             }
             case "RAIN":{
                 this.coordinates = new Coordinates(longitude, latitude, height - 5);
-                System.out.println("Balloon#" + this.name + "(" + this.id + "):" +  " It's raining! Insert pun about water balloons here.");
+                Output.writeOuput("Balloon#" + this.name + "(" + this.id + "):" +  " It's raining! Insert pun about water balloons here.");
                 break;
             }
             case "FOG":{
                 this.coordinates = new Coordinates(longitude, latitude, height - 3);
-                System.out.println("Balloon#" + this.name + "(" + this.id + "):" +  " What if fog, is just God vaping.");
+                Output.writeOuput("Balloon#" + this.name + "(" + this.id + "):" +  " What if fog, is just God vaping.");
                 break;
             }
             case "SNOW":{
                 this.coordinates = new Coordinates(longitude, latitude, height - 15);
-                System.out.println("Balloon#" + this.name + "(" + this.id + "):" +  " Never catch snow flakes with your tongue until all the birds have gone south.");
+                Output.writeOuput("Balloon#" + this.name + "(" + this.id + "):" +  " Never catch snow flakes with your tongue until all the birds have gone south.");
                 break;
             }
         }
@@ -46,8 +46,7 @@ public class Balloon extends Aircraft implements Flyable {
 
         if (this.coordinates.getHeight() <= 0) {
             weatherTower.unregister(this);
-            output = ("Balloon#" + this.name + "(" + this.id + ")" + " landing");
-            Output.writeOuput(output);
+            Output.writeOuput("Balloon#" + this.name + "(" + this.id + ")" + " landing");
         }
     }
 
@@ -55,6 +54,6 @@ public class Balloon extends Aircraft implements Flyable {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
 
-        System.out.println("Tower says: Balloon#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
+        Output.writeOuput("Tower says: Balloon#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
     }
 }

@@ -21,22 +21,22 @@ public class JetPlane extends Aircraft implements Flyable {
         switch(weather) {
             case "SUN":{
                 this.coordinates = new Coordinates(longitude, latitude + 10, height + 2);
-                System.out.println("JetPlane#" + this.name + "(" + this.id + "):" +  " nnneeaoowww!");
+                Output.writeOuput("JetPlane#" + this.name + "(" + this.id + "):" +  " nnneeaoowww!");
                 break;
             }
             case "RAIN":{
                 this.coordinates = new Coordinates(longitude, latitude + 5, height);
-                System.out.println("JetPlane#" + this.name + "(" + this.id + "):" +  " next time, FLY SOUTH!");
+                Output.writeOuput("JetPlane#" + this.name + "(" + this.id + "):" +  " next time, FLY SOUTH!");
                 break;
             }
             case "FOG":{
                 this.coordinates = new Coordinates(longitude, latitude + 1, height);
-                System.out.println("JetPlane#" + this.name + "(" + this.id + "):" +  " Not sure if I'm on the correct route, or if I'm even in the sky at all!");
+                Output.writeOuput("JetPlane#" + this.name + "(" + this.id + "):" +  " Not sure if I'm on the correct route, or if I'm even in the sky at all!");
                 break;
             }
             case "SNOW":{
                 this.coordinates = new Coordinates(longitude, latitude, height - 7);
-                System.out.println("JetPlane#" + this.name + "(" + this.id + "):" +  " What do you call a snowman with a six pack ? the abdominal snowman!");
+                Output.writeOuput("JetPlane#" + this.name + "(" + this.id + "):" +  " What do you call a snowman with a six pack ? the abdominal snowman!");
                 break;
             }
         }
@@ -46,8 +46,7 @@ public class JetPlane extends Aircraft implements Flyable {
 
         if (this.coordinates.getHeight() <= 0) {
             weatherTower.unregister(this);
-            output = ("JetPlane#" + this.name + "(" + this.id + ")" + " landing");
-            Output.writeOuput(output);
+            Output.writeOuput("JetPlane#" + this.name + "(" + this.id + ")" + " landing");
         }
     }
 
@@ -55,6 +54,6 @@ public class JetPlane extends Aircraft implements Flyable {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
 
-        System.out.println("Tower says: JetPlane#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
+        Output.writeOuput("Tower says: JetPlane#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
     }
 }

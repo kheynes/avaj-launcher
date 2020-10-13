@@ -1,8 +1,8 @@
 package com.avaj_launcher.sim.aircraft;
 
 import com.avaj_launcher.sim.Coordinates;
-import com.avaj_launcher.sim.Output;
 import com.avaj_launcher.sim.tower.WeatherTower;
+import com.avaj_launcher.sim.Output;
 
 public class Helicopter extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
@@ -20,23 +20,22 @@ public class Helicopter extends Aircraft implements Flyable {
         switch(weather) {
             case "SUN":{
                 this.coordinates = new Coordinates(longitude + 10, latitude, height + 2);
-                Output.writeOutput("Helicopter#" + this.name + "(" + this.id + "):" +  " Turn on the fan! it's so hot in here.");
+                Output.writeOuput("Helicopter#" + this.name + "(" + this.id + "):" +  " Turn on the fan! it's so hot in here.");
                 break;
             }
             case "RAIN":{
                 this.coordinates = new Coordinates(longitude + 5, latitude, height);
-                Output.writeOutput("Helicopter#" + this.name + "(" + this.id + "):" +  " If we get anymore wet they'll have to call me the marine 2.");
+                Output.writeOuput("Helicopter#" + this.name + "(" + this.id + "):" +  " If we get anymore wet they'll have to call me the marine 2.");
                 break;
             }
             case "FOG":{
                 this.coordinates = new Coordinates(longitude + 1, latitude, height);
-                Output.writeOutput("Helicopter#" + this.name + "(" + this.id + "):" +  " I tried to grab fog, but I MIST.");
+                Output.writeOuput("Helicopter#" + this.name + "(" + this.id + "):" +  " I tried to grab fog, but I MIST.");
                 break;
             }
             case "SNOW":{
                 this.coordinates = new Coordinates(longitude, latitude, height - 12);
-                Output.writeOutput("Helicopter#" + this.name + "(" + this.id + "):" +  " Is that a white walker ?");
-
+                Output.writeOuput("Helicopter#" + this.name + "(" + this.id + "):" +  " Is that a white walker ?");
                 break;
             }
         }
@@ -46,7 +45,7 @@ public class Helicopter extends Aircraft implements Flyable {
 
         if (this.coordinates.getHeight() <= 0) {
             weatherTower.unregister(this);
-            Output.writeOutput("Helicopter#" + this.name + "(" + this.id + ")" + " landing");
+            Output.writeOuput("Helicopter#" + this.name + "(" + this.id + ")" + " landing");
         }
     }
 
@@ -54,6 +53,6 @@ public class Helicopter extends Aircraft implements Flyable {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
 
-        Output.writeOutput("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
+        Output.writeOuput("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
     }
 }
