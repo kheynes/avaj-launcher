@@ -3,10 +3,12 @@ package com.avaj_launcher.sim;
 import java.io.*;
 import com.avaj_launcher.sim.aircraft.*;
 import com.avaj_launcher.sim.tower.*;
+import com.avaj_launcher.sim.Output;
 
 public class Sim {
     public static WeatherTower weatherTower = new WeatherTower();
     public static void main(String[] args) {
+        Output.createFile();
         BufferedReader fileReader = null;
         try{
             if (0 < args.length) {

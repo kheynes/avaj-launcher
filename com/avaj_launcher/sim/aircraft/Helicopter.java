@@ -1,6 +1,7 @@
 package com.avaj_launcher.sim.aircraft;
 
 import com.avaj_launcher.sim.Coordinates;
+import com.avaj_launcher.sim.Output;
 import com.avaj_launcher.sim.tower.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable {
@@ -8,8 +9,6 @@ public class Helicopter extends Aircraft implements Flyable {
 
     public Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
-
-        System.out.println("Helicopter " + name + " " + this.id + " " + coordinates.getLongitude() + " " + coordinates.getLatitude() + " " + coordinates.getHeight());
     }
 
     public void updateConditions() {
@@ -21,22 +20,23 @@ public class Helicopter extends Aircraft implements Flyable {
         switch(weather) {
             case "SUN":{
                 this.coordinates = new Coordinates(longitude + 10, latitude, height + 2);
-                System.out.println("Helicopter Sun");
+                Output.writeOutput("Helicopter#" + this.name + "(" + this.id + "):" +  " Turn on the fan! it's so hot in here.");
                 break;
             }
             case "RAIN":{
                 this.coordinates = new Coordinates(longitude + 5, latitude, height);
-                System.out.println("Helicopter Rain");
+                Output.writeOutput("Helicopter#" + this.name + "(" + this.id + "):" +  " If we get anymore wet they'll have to call me the marine 2.");
                 break;
             }
             case "FOG":{
                 this.coordinates = new Coordinates(longitude + 1, latitude, height);
-                System.out.println("Helicopter Fog");
+                Output.writeOutput("Helicopter#" + this.name + "(" + this.id + "):" +  " I tried to grab fog, but I MIST.");
                 break;
             }
             case "SNOW":{
                 this.coordinates = new Coordinates(longitude, latitude, height - 12);
-                System.out.println("Helicopter Snow");
+                Output.writeOutput("Helicopter#" + this.name + "(" + this.id + "):" +  " Is that a white walker ?");
+
                 break;
             }
         }
@@ -46,7 +46,7 @@ public class Helicopter extends Aircraft implements Flyable {
 
         if (this.coordinates.getHeight() <= 0) {
             weatherTower.unregister(this);
-            System.out.println(name + " unregistered");
+            Output.writeOutput("Helicopter#" + this.name + "(" + this.id + ")" + " landing");
         }
     }
 
@@ -54,6 +54,6 @@ public class Helicopter extends Aircraft implements Flyable {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
 
-        System.out.println("Helicopter was registered to the Tower ??I think");
+        Output.writeOutput("Tower says: Helicopter#" + this.name + "(" + this.id + ")" + " registered to weather tower.");
     }
 }
